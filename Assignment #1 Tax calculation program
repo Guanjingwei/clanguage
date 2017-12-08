@@ -1,1 +1,187 @@
+作业的说明部分：
+Requirement: 
+According the pre-tax income and the welfare insurance that a user enters, calculate the amount of the tax and the real wage. Furthermore, list the amount of the taxable income, the applicable tax rate and the quick deductions, as shown below.
+Table 1. Program result sample
+Taxable income	2100.00 yuan
+Rate	10 %
+Quick deduction	105 yuan
+Tax	 105.00 yuan
 
+Real wage	 5495.00 yuan
+
+Supplement:
+*The tax calculation formulas are:
+Taxable income = salary income - welfare insurance - threshold (3,500 yuan)
+Tax = taxable income x tax rate - quick deduction
+*Tax rates are:
+
+Table 2. The tax rates
+Level	Taxable income(Tax included)	Taxable income(tax excluded)	Rates(%)	Quick deductions
+1	Less than 1500	Less than 1455	3	0
+2	(1500, 4,500]	(1455,  4,155]	10	105
+3	(4,500,  9,000]	(4,155,  7,755]	20	555
+4	(9,000, 35,000]	(7,755,  27,255]	25	1,005
+5	(35,000, 55,000]	(27,255,  41,255]	30	2,775
+6	(55,000, 80,000]	(41,255,  57,505]	35	5,505
+7	More than 80,000	More than 57,505	45	13,505
+* You can also refer to the web page:  http://www.gerensuodeshui.cn/
+
+
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <windows.h>
+void main()
+{
+    int qude;
+	float sain,wein,thsh,tain,tara;
+	float rate,tax,rewa;
+	thsh = 3500;
+	system("color 1e");
+    printf("               ***************************************************          \n");
+	printf("               *******Welcome to the tax calculation System*******          \n");
+    printf("               *******Welcome to the tax calculation System*******          \n");
+    printf("               *******Welcome to the tax calculation System*******          \n");
+    printf("               *******Welcome to the tax calculation System*******          \n");
+    printf("               *******Welcome to the tax calculation System*******          \n");
+    printf("               *******Welcome to the tax calculation System*******          \n");
+    printf("               *******Welcome to the tax calculation System*******          \n");
+    printf("               *******Welcome to the tax calculation System*******          \n");
+    printf("               *******Welcome to the tax calculation System*******          \n");
+	printf("               ***************************************************          \n");
+	printf("               PASS ANY KEY TO CONTINUE THIS TAX CALUCATION SYSTEM");
+	getchar();
+	fflush(stdin);
+	system("cls");
+	printf("          Please enter the salary income : ");
+	scanf("%f",&sain);
+	if(sain<0)
+	{
+	  printf("         Error!\n");
+	  return;
+	}
+    printf("          Please enter the welfare insurance  : ");
+	scanf("%f",&wein);
+	if(wein<0)
+	{
+	  printf("         Error!\n");
+	  return;
+	}
+	//Taxable income = salary income - welfare insurance - threshold (3,500 yuan)
+	tain = sain - wein -thsh;
+	if(tain<1500)
+	{
+		float rate2;
+		rate = 0.03;
+		qude = 0;
+		//Tax = taxable income x tax rate
+		tax = tain * rate -qude;
+		rate2 = rate * 100;
+		rewa= sain - tax - wein;
+		printf("          **********************************\n");
+		printf("          *The Taxable income  is : %0.2f\n",tain);
+		printf("          *The       Tax       is : %0.2f\n",tax);
+		printf("          *The Quick deduction is : %d\n",qude);
+		printf("          *The       Rate      is : %.0f% %\n",rate2);
+	    printf("          *The     Real wage   is : %0.2f\n",rewa);
+		printf("          **********************************\n");
+	}
+	else if(tain<=4500)
+	{
+		float rate2;
+		rate = 0.10;
+		qude = 105;
+		//Tax = taxable income x tax rate
+		tax = tain * rate -qude;
+		rate2 = rate * 100;
+		rewa= sain - tax -wein;
+		printf("          **********************************\n");
+		printf("          *The Taxable income  is : %0.2f\n",tain);
+		printf("          *The       Tax       is : %0.2f\n",tax);
+		printf("          *The Quick deduction is : %d\n",qude);
+		printf("          *The       Rate      is : %.0f% %\n",rate2);
+	    printf("          *The     Real wage   is : %0.2f\n",rewa);
+		printf("          **********************************\n");
+	}else if(tain<=9000)
+	{
+		float rate2;
+		rate = 0.20;
+		qude = 555;
+		//Tax = taxable income x tax rate
+		tax = tain * rate -qude;
+		rate2 = rate * 100;
+		rewa= sain - tax -wein;
+		printf("          **********************************\n");
+		printf("          *The Taxable income  is : %0.2f\n",tain);
+		printf("          *The       Tax       is : %0.2f\n",tax);
+		printf("          *The Quick deduction is : %d\n",qude);
+		printf("          *The       Rate      is : %.0f% %\n",rate2);
+	    printf("          *The     Real wage   is : %0.2f\n",rewa);
+		printf("          **********************************\n");
+	}else if(tain<=35000)
+	{
+		float rate2;
+		rate = 0.25;
+		qude = 1005;
+		//Tax = taxable income x tax rate
+		tax = tain * rate -qude;
+		rate2 = rate * 100;
+		rewa= sain - tax -wein;
+		printf("          **********************************\n");
+		printf("          *The Taxable income  is : %0.2f\n",tain);
+		printf("          *The       Tax       is : %0.2f\n",tax);
+		printf("          *The Quick deduction is : %d\n",qude);
+		printf("          *The       Rate      is : %.0f% %\n",rate2);
+	    printf("          *The     Real wage   is : %0.2f\n",rewa);
+		printf("          **********************************\n");
+	}else if(tain<=55000)
+	{
+		float rate2;
+		rate = 0.30;
+		qude = 2775;
+		//Tax = taxable income x tax rate
+		tax = tain * rate;
+		rate2 = rate * 100;
+		rewa= sain - tax -wein -qude;
+		printf("          **********************************\n");
+		printf("          *The Taxable income  is : %0.2f\n",tain);
+		printf("          *The       Tax       is : %0.2f\n",tax);
+		printf("          *The Quick deduction is : %d\n",qude);
+		printf("          *The       Rate      is : %.0f% %\n",rate2);
+	    printf("          *The     Real wage   is : %0.2f\n",rewa);
+		printf("          **********************************\n");
+	}else if(tain<=80000)
+	{
+		float rate2;
+		rate = 0.35;
+		qude = 5505;
+		//Tax = taxable income x tax rate
+		tax = tain * rate -qude;
+		rate2 = rate * 100;
+		rewa= sain - tax -wein;
+		printf("          **********************************\n");
+		printf("          *The Taxable income  is : %0.2f\n",tain);
+		printf("          *The       Tax       is : %0.2f\n",tax);
+		printf("          *The Quick deduction is : %d\n",qude);
+		printf("          *The       Rate      is : %.0f% %\n",rate2);
+	    printf("          *The     Real wage   is : %0.2f\n",rewa);
+		printf("          **********************************\n");
+	}else
+	{
+		float rate2;
+		rate = 0.45;
+		qude = 13505;
+		//Tax = taxable income x tax rate
+		tax = tain * rate -qude;
+		rate2 = rate * 100;
+		rewa= sain - tax -wein;
+		printf("          **********************************\n");
+		printf("          *The Taxable income  is : %0.2f\n",tain);
+		printf("          *The       Tax       is : %0.2f\n",tax);
+		printf("          *The Quick deduction is : %d\n",qude);
+		printf("          *The       Rate      is : %.0f% %\n",rate2);
+	    printf("          *The     Real wage   is : %0.2f\n",rewa);
+		printf("          **********************************\n");
+	}
+
+}
