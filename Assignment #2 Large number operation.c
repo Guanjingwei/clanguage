@@ -1,3 +1,4 @@
+/*
 Assignment #2 Large number operation
 
 
@@ -10,7 +11,7 @@ a)	The large numbers are integers.
 b)	The operands and the results are all no more than 25 significant digits.
 
 Note that: Do not use array and pointer. Only use what you have learned in CS course, such as expression, selection and loops.
-
+*/
 
 
 
