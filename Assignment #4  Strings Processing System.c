@@ -1,11 +1,15 @@
 //*************************************老规矩!先写好注释*******************************************
-//*************************************************************************************************
-//*                                 BIGPROJECT 4   String                                         *
-//*                      Assignment4 Strings Processing System                                    *
-//*                 Souce Code BY:Brooks (Heodel) in Kaist LIC Program                            *
+//************************************************************************************************
+//*                                 BIGPROJECT 4   String                                        *
+//*                      Assignment4 Strings Processing System                                   *
+//*                 Souce Code BY:Brooks (Heodel) in Kaist LIC Program                           *
 //****************编译环境Win7 Code::Blocks 16.04 编译器GNU GCC Compiler***************************
 //*************************************传说中的分割线**********************************************
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
+#include <string.h>
+#include <ctype.h>
 #define N 100                     //利用define定义常量 进行字符串数组操作
 #define M 100
 #define K 100
@@ -318,8 +322,4 @@ void function9()
 	 MessageBox(0,"欢迎下次调试本程序！！\n","温馨提示：大作业四",0);
 	 exit(0);
 }
-#include <stdio.h>
-#include <stdlib.h>
-#include <windows.h>
-#include <string.h>
-#include <ctype.h>
+
